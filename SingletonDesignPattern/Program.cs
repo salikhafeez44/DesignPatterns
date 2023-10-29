@@ -1,6 +1,4 @@
-﻿
-
-using SingletonDesignPattern;
+﻿using SingletonDesignPattern;
 
 
 var differentInstance1 = new ServiceProvider();
