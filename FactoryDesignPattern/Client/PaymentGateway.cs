@@ -1,4 +1,5 @@
-﻿using FactoryDesignPattern.Product;
+﻿using FactoryDesignPattern.Factory;
+using FactoryDesignPattern.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,15 @@ namespace FactoryDesignPattern.Client
 {
     public class PaymentGateway
     {
-        public static IPayment GetPayment(PaymentMethod paymentMethod)
+        public static IPaymentFactory GetPayment(PaymentMethod paymentMethod)
         {
             return paymentMethod switch
             {
-                PaymentMethod.PayPal => new PayPalPayment(),
-                PaymentMethod.CreditCard => new CreditCardPayment(),
-                PaymentMethod.Google => new GooglePayment(),
+                PaymentMethod.PayPal => new PayPalFactory(),
+                PaymentMethod.CreditCard => new CreditCardFactory(),
+                PaymentMethod.Google => new GoogleFactory(),
                 _ => throw new NotImplementedException(),
-            };
+            } ;
         }
     }
 }
